@@ -1,0 +1,16 @@
+#battleBoard {
+    border: black solid 2px;
+    width: 400px;
+    height: 400px;
+    table-layout: fixed;
+}
+
+td {
+    border: black solid 1px;
+    padding: 0px;
+    margin-top: 0px;
+}
+
+.torpedo {
+    background-color: blue;
+}
