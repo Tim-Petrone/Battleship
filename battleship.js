@@ -27,6 +27,7 @@ $(document).ready(function(){
 
     // Torpedo shot
     counter = 0;
+    hitCounter = 0;
 
     $("td").on("click", function(event) {
         link = event.target.id;
@@ -36,12 +37,27 @@ $(document).ready(function(){
             $(this).addClass("torpedo");
         } else {
             $(this).addClass("hit");
-        }
+            hitCounter++;
+            $("#hitCounter").text(hitCounter);
+            if (hitCounter == 5){
+                setTimeout(function() {
+                    alert("You have sunk all the battleships. You win!");
+                },10);
+                $("td").off("click");
+            };
+        };
         $(this).off("click");
         counter++;
         if (counter >= 25) {
-            alert("Oh no! You are out of torpedos! The enemy sinks your battleship!");
+            setTimeout(function(){
+                alert("Oh no! You are out of torpedos! The enemy sinks your battleship!");
+            },10);
             $("td").off("click");
+            // if (board[linkSplit[0]][linkSplit[1]] == 0){
+            //     $("td").addClass("torpedo");
+            // } else {
+            //     $("td").addClass("hit");
+            // }
         };
     });
 
