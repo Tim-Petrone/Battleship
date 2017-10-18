@@ -14,3 +14,7 @@ td {
 .torpedo {
     background-color: blue;
 }
+
+.hit {
+    background-color: red;
+}
