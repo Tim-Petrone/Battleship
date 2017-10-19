@@ -1,5 +1,5 @@
 body {
-    backgroud: url(http://www2.sluh.org/bioweb/nh/biomes/openocean/15_10_46_web.jpg);
+    background: url(http://www2.sluh.org/bioweb/nh/biomes/openocean/15_10_46_web.jpg);
     background-size: 100%;
     background-repeat: repeat-y;
 }
@@ -31,4 +31,7 @@ td {
 #table, #torpedoUsed, #torpedoHits {
     float:left;
     margin: 50px;
+}
+.reveal {
+    background-color: black;
 }
