@@ -1,11 +1,4 @@
 //Global Variables for Ship Creation
-// var rowIndex=event.target.id;
-// var colIndex=event.target.id;
-
-
-
-
-
 var link;
 var board = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -21,6 +14,7 @@ var board = [
 ];
 var ship = 1;
 
+//Start of Document Ready
 $(document).ready(function(){
     // Table
     for (indexR=0; indexR<10; indexR++){
@@ -34,12 +28,14 @@ $(document).ready(function(){
         var x = Math.floor(Math.random()*10);
         var y = Math.floor(Math.random()*10);
         board[x][y] = ship;
+        // board[x-1][y] = -1;
+        // board[x+1][y] = -1;
+        // board[x][y-1] = -1;
+        // board[x][y+1] = -1;
 
         var join = "#" + x.toString() + y.toString();
 
         $(join).addClass("joined");
-
-        // board[Math.floor(Math.random()*10)][Math.floor(Math.random()*10)] = ship;
     }
 
     // Torpedo shot
@@ -65,36 +61,23 @@ $(document).ready(function(){
         };
         $(this).off("click");
         counter++;
-        if (counter >= 2) {
+        if (counter >= 25) {
             setTimeout(function(){
                 alert("Oh no! You are out of torpedos! The enemy sinks your battleship!");
             },10);
+
+            $("td").off("click");
 
             var shipLocation = [];
             for (indexR=0; indexR<10; indexR++){
                 console.log(board[indexR]);
                 for (indexC=0; indexC<10; indexC++) {
                     if (board[indexR][indexC] == ship) {
-                        shipLocation.push(indexR +  indexC);
-                        $("#" + indexR +  indexC).addClass("hit");
+                        shipLocation.push(indexR + indexC);
+                        $("#" + indexR + indexC).addClass("hit");
                     };
                 };
             };
-            showShip = shipLocation[0];
-            showShipSplit = showShip.split(" ");
-            if (board[showShipSplit[0]][showShipSplit[1]] == 0){
-                $(this).addClass("torpedo");
-            } else {
-                $(this).addClass("hit");
-            };
-            console.log(shipLocation);
-            // $("#" + shipLocation[0]).addClass("hit");
-            // $("#" + shipLocation[1]).addClass("hit");
-            // $("#" + shipLocation[2]).addClass("hit");
-            // $("#" + shipLocation[3]).addClass("hit");
-            // $("#" + shipLocation[4]).addClass("hit");
-            // console.log(shipLocation);
-            $("td").off("click");
 
         };
     });
@@ -104,25 +87,46 @@ $(document).ready(function(){
         $("#torpedoCounter").text(counter);
     });
 
-    //Reveal Button
-    $("#revealButton").click(function(){
-        for (indexR=0; indexR<10; indexR++){
-            console.log(board[indexR]);
-            for (indexC=0; indexC<10; indexC++) {
-                if (board[indexR][indexC] == ship) {
-                    shipLocation.push(indexR + " " +  indexC);
-                    $("#" + indexR + " " +  indexC).addClass("hit");
-                };
-            };
-        };
-        $("#" + shipLocation[0]).addClass("hit");
-        $("#" + shipLocation[1]).addClass("hit");
-        $("#" + shipLocation[2]).addClass("hit");
-        $("#" + shipLocation[3]).addClass("hit");
-        $("#" + shipLocation[4]).addClass("hit");
-        console.log(shipLocation);
-    });
-
-
 //End of Document Ready
 });
+
+
+
+
+
+
+// Discarded code
+
+// showShip = shipLocation[0];
+// showShipSplit = showShip.split(" ");
+// if (board[showShipSplit[0]][showShipSplit[1]] == 0){
+//     $(this).addClass("torpedo");
+// } else {
+//     $(this).addClass("hit");
+// };
+// console.log(shipLocation);
+// $("#" + shipLocation[0]).addClass("hit");
+// $("#" + shipLocation[1]).addClass("hit");
+// $("#" + shipLocation[2]).addClass("hit");
+// $("#" + shipLocation[3]).addClass("hit");
+// $("#" + shipLocation[4]).addClass("hit");
+// console.log(shipLocation);
+
+//Reveal Button
+// $("#revealButton").click(function(){
+//     for (indexR=0; indexR<10; indexR++){
+//         console.log(board[indexR]);
+//         for (indexC=0; indexC<10; indexC++) {
+//             if (board[indexR][indexC] == ship) {
+//                 shipLocation.push(indexR + " " +  indexC);
+//                 $("#" + indexR + " " +  indexC).addClass("hit");
+//             };
+//         };
+//     };
+//     $("#" + shipLocation[0]).addClass("hit");
+//     $("#" + shipLocation[1]).addClass("hit");
+//     $("#" + shipLocation[2]).addClass("hit");
+//     $("#" + shipLocation[3]).addClass("hit");
+//     $("#" + shipLocation[4]).addClass("hit");
+//     console.log(shipLocation);
+// });
