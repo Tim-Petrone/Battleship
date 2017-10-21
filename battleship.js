@@ -27,13 +27,15 @@ $(document).ready(function(){
         }
     });
 
-    // console.log(allSquares);
-    // console.log(pickRandomSquare(allSquares));
-    // console.log(pickRandomSquare(allSquares));
-    // console.log(pickRandomSquare(allSquares));
-    // console.log(pickRandomSquare(allSquares));
-    // console.log(pickRandomSquare(allSquares));
+    console.log(allSquares);
     console.log(randomLocations);
+    console.log(pickRandomSquare(allSquares));
+    console.log(pickRandomSquare(allSquares));
+    console.log(pickRandomSquare(allSquares));
+    console.log(pickRandomSquare(allSquares));
+
+
+
     console.log(board);
 
     function pickRandomSquare(set){
@@ -42,6 +44,7 @@ $(document).ready(function(){
         randomLocations.push(location[0]);
         return location
     }
+
 
     function random (max) {
         return Math.floor(Math.random() * max);
@@ -85,7 +88,7 @@ $(document).ready(function(){
     //     };
     // };
 
-    for (placement = 0; placement < 5; placement++) {
+    for (placement = 0; placement < 99; placement++) {
         // var x = Math.floor(Math.random()*10);
         // var y = Math.floor(Math.random()*10);
         pickRandomSquare(allSquares);
